@@ -36,6 +36,7 @@
     gap: 0.1in;
   }
 
+  /* Photo */
   .photo {
     width: 100%;
     aspect-ratio: 3/4;
@@ -50,27 +51,30 @@
 
   .pair { margin: .04in 0; }
 
+  /* Barcode */
   .barcode {
-    margin: 0.08in 0;
+    margin: 0.08in auto;
     text-align: center;
   }
   .barcode img { width: 1.6in; height: auto; }
 
+  /* Bottom row */
   .bottom {
-    margin-top: 0.05in;
+    margin-top: 0.08in;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
   .company {
     text-align:center;
-    width: 1in;
+    width: 1.1in;
   }
-  .company img { width: 0.6in; display:block; margin: 0 auto; }
-  .company .name { font-size: .10in; margin-top: .02in; font-weight: bold; }
+  .company img { width: 0.65in; display:block; margin: 0 auto; }
+  .company .name { font-size: .10in; margin-top: .03in; font-weight: bold; line-height:1.2; }
 
   .qr img { width: 0.75in; height: 0.75in; }
 
+  /* Footer */
   .footer {
     position:absolute;
     left:0; right:0; bottom:0;
@@ -142,7 +146,7 @@
         <img src="barcode.png" alt="Barcode">
       </div>
 
-      <!-- Bottom row: Company & QR -->
+      <!-- Company Logo + Name + QR -->
       <div class="bottom">
         <div class="company">
           <img src="logo.png" alt="Company Logo">
