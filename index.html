@@ -21,19 +21,19 @@
 
   .header {
     background: #bff0df;
-    padding: 0.15in 0.16in;
+    padding: 0.12in;
     text-align: center;
     font-weight: bold;
-    font-size: .18in;
+    font-size: .16in;
     color: #111;
   }
 
-  .body { padding: 0.12in 0.16in 0.12in; }
+  .body { padding: 0.10in 0.14in 0.12in; }
 
   .grid {
     display:grid;
-    grid-template-columns: 0.9in 1fr;
-    gap: 0.1in;
+    grid-template-columns: 0.85in 1fr;
+    gap: 0.08in;
   }
 
   /* Photo */
@@ -41,68 +41,78 @@
     width: 100%;
     aspect-ratio: 3/4;
     border: 1px solid #ccc;
-    background: url('employee-photo.png') center/cover no-repeat;
+    background: #f8f8f8 center/cover no-repeat;
     border-radius: 0.04in;
+    overflow:hidden;
+  }
+  .photo img {
+    width:100%; height:100%; object-fit:cover;
   }
 
-  .label { font-size: .075in; color:#555; }
-  .value { font-size: .11in; font-weight: bold; color:#000; line-height:1.2; }
-  .value.big { font-size: .13in; }
+  .label { font-size: .07in; color:#555; }
+  .value { font-size: .095in; font-weight: bold; color:#000; line-height:1.2; }
+  .value.big { font-size: .11in; }
 
-  .pair { margin: .04in 0; }
+  .pair { margin: .03in 0; }
 
   /* Barcode */
   .barcode {
-    margin: 0.1in auto 0.08in;
+    margin: 0.08in auto;
     text-align: center;
   }
-  .barcode img { width: 1.6in; height: auto; }
+  .barcode img { max-width: 1.5in; max-height: 0.4in; width: auto; height: auto; }
 
   /* Bottom row */
   .bottom {
-    margin-top: 0.08in;
+    margin-top: 0.06in;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
   .company {
     text-align:center;
-    width: 1.1in;
+    width: 1.0in;
   }
-  .company img { width: 0.65in; display:block; margin: 0 auto; }
-  .company .name { font-size: .10in; margin-top: .03in; font-weight: bold; line-height:1.2; }
+  .company img { max-width: 0.6in; max-height:0.6in; display:block; margin: 0 auto; }
+  .company .name { font-size: .085in; margin-top: .02in; font-weight: bold; line-height:1.2; }
 
-  .qr img { width: 0.75in; height: 0.75in; }
+  .qr img { max-width: 0.65in; max-height: 0.65in; }
 
   /* Footer */
   .footer {
     position:absolute;
     left:0; right:0; bottom:0;
     background:#bff0df;
-    padding: 0.08in 0.16in;
+    padding: 0.07in 0.12in;
     text-align:center;
-    font-size: .10in;
+    font-size: .085in;
     font-weight: bold;
     color:#111;
   }
 
-  /* Download Button */
-  .download-btn {
+  /* Download Button + Upload */
+  .controls {
     margin-top: 10px;
-    padding: 8px 16px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+  }
+  .download-btn, .upload-btn {
+    padding: 6px 14px;
     background: #4caf50;
     color: #fff;
     border: none;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
   }
+  .upload-btn { background:#2196f3; }
 
   @page { size: 2.1in 3.37in; margin: 0; }
   @media print {
     body { background: transparent; }
     .card { box-shadow: none; }
-    .download-btn { display: none; }
+    .controls { display: none; }
   }
 </style>
 </head>
@@ -114,7 +124,9 @@
     <div class="body">
       <div class="grid">
         <!-- Photo -->
-        <div class="photo"></div>
+        <div class="photo" id="photoBox">
+          <img id="empPhoto" src="employee-photo.png" alt="Employee Photo">
+        </div>
 
         <!-- Details -->
         <div>
@@ -161,7 +173,25 @@
     <div class="footer">www.tomagroupbd.com</div>
   </div>
 
-  <button class="download-btn" onclick="window.print()">Download PDF</button>
+  <!-- Buttons -->
+  <div class="controls">
+    <input type="file" id="uploadPhoto" accept="image/*" class="upload-btn">
+    <button class="download-btn" onclick="window.print()">Download PDF</button>
+  </div>
+
+<script>
+  // Photo upload preview
+  document.getElementById('uploadPhoto').addEventListener('change', function(e){
+    const file = e.target.files[0];
+    if(file){
+      const reader = new FileReader();
+      reader.onload = function(event){
+        document.getElementById('empPhoto').src = event.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
 
 </body>
 </html>
