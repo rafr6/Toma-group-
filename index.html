@@ -68,7 +68,8 @@
     margin-top: 0.08in;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    position: relative;
   }
   .company {
     text-align:center;
@@ -78,6 +79,14 @@
   .company .name { font-size: .085in; margin-top: .02in; font-weight: bold; line-height:1.2; }
 
   .qr img { max-width: 0.65in; max-height: 0.65in; }
+
+  /* Divider between company and QR */
+  .divider {
+    width: 1px;
+    background: #ccc;
+    height: 0.75in;
+    margin: 0 0.1in;
+  }
 
   /* Footer */
   .footer {
@@ -159,12 +168,13 @@
         </div>
       </div>
 
-      <!-- Company Logo + Name + QR -->
+      <!-- Company Logo + Divider + QR -->
       <div class="bottom">
         <div class="company">
           <img src="logo.png" alt="Company Logo">
           <div class="name">Toma Construction & Co. LTD</div>
         </div>
+        <div class="divider"></div>
         <div class="qr">
           <img src="qrcode.png" alt="QR Code">
         </div>
