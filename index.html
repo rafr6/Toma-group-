@@ -37,31 +37,31 @@
     gap: 0.08in;
   }
 
-  /* Photo */
+  /* Photo Box */
   .photo {
     width: 100%;
     aspect-ratio: 3/4;
-    background: #f8f8f8 center/cover no-repeat;
+    background: #000; /* স্ক্যানশর্টে যেরকম কালো ব্যাকগ্রাউন্ড আছে */
     border-radius: 0.05in;
     overflow:hidden;
     margin-bottom: 0.04in;
     position: relative;
-    border: 3px solid transparent; /* বর্ডার স্পেস রাখার জন্য */
   }
 
-  /* 🔹 Screenshot-এর মতো চারপাশে ডিজাইন */
+  /* 🔹 Screenshot-এর মতো চারপাশে উজ্জ্বল ডিজাইন */
   .photo::before {
     content: '';
     position: absolute;
-    top: -3px; left: -3px; right: -3px; bottom: -3px;
-    border-radius: 0.06in;
-    padding: 3px;
-    background: linear-gradient(135deg, #00bcd4, #4caf50);
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 3px solid transparent;
+    border-radius: 0.05in;
+    background: linear-gradient(135deg, #00c6ff, #00ff95);
     -webkit-mask: 
       linear-gradient(#fff 0 0) content-box, 
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    padding:3px;
     z-index: 1;
   }
 
@@ -69,7 +69,6 @@
     width:100%; height:100%; object-fit:cover;
     position: relative;
     z-index:2;
-    border-radius: 0.04in;
   }
 
   .label { font-size: .08in; color:#555; }
