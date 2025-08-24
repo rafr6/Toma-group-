@@ -42,7 +42,7 @@
     width: 100%;
     aspect-ratio: 3/4;
     border: 1px solid #ccc;
-    background: #f8f8f8 center/cover no-repeat;
+    background: #000000; /* ব্যাকগ্রাউন্ড কালো */
     border-radius: 0.04in;
     overflow:hidden;
     margin-bottom: 0.04in;
@@ -53,8 +53,8 @@
     content: '';
     position: absolute;
     top:0; left:0; right:0; bottom:0;
-    background: url('design-pattern.png') center/contain no-repeat; /* এখানে তোমার ডিজাইন ইমেজ বসাও */
-    opacity: 0.18; /* হালকা ডিজাইন */
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='white'><circle cx='32' cy='20' r='12'/><rect x='28' y='32' width='8' height='16'/><path d='M10 46 L54 18' stroke='white' stroke-width='6'/><path d='M54 46 L10 18' stroke='white' stroke-width='6'/></g></svg>") center/70% no-repeat;
+    opacity: 0.25; /* হালকা ডিজাইন */
     z-index:1;
   }
   .photo img {
