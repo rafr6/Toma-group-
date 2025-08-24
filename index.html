@@ -41,27 +41,22 @@
   .photo {
     width: 100%;
     aspect-ratio: 3/4;
-    background: #000; /* স্ক্যানশর্টে যেরকম কালো ব্যাকগ্রাউন্ড আছে */
+    background: #000; /* স্ক্যানশর্টের মতো কালো ব্যাকগ্রাউন্ড */
     border-radius: 0.05in;
     overflow:hidden;
     margin-bottom: 0.04in;
     position: relative;
+    border: 3px solid transparent;
+    background-clip: padding-box;
   }
 
-  /* 🔹 Screenshot-এর মতো চারপাশে উজ্জ্বল ডিজাইন */
+  /* চারপাশে গ্রেডিয়েন্ট বর্ডার */
   .photo::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border: 3px solid transparent;
-    border-radius: 0.05in;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border-radius: 0.08in;
     background: linear-gradient(135deg, #00c6ff, #00ff95);
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    padding:3px;
     z-index: 1;
   }
 
