@@ -48,17 +48,20 @@
     margin-bottom: 0.04in;
     position: relative;
   }
-  /* Background design behind the photo (exactly like screenshot) */
+
+  /* 🔹 Screenshot-এর মতো চারপাশে ডিজাইন */
   .photo::before {
     content: '';
     position: absolute;
     top:0; left:0; right:0; bottom:0;
     background: 
-      repeating-linear-gradient(45deg, rgba(0,150,136,0.25) 0px, rgba(0,150,136,0.25) 2px, transparent 2px, transparent 8px),
-      radial-gradient(circle at center, rgba(0,200,255,0.12), transparent 70%);
-    opacity: 0.25;
+      repeating-linear-gradient(135deg, rgba(0,150,136,0.22) 0px, rgba(0,150,136,0.22) 2px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(-135deg, rgba(0,200,255,0.18) 0px, rgba(0,200,255,0.18) 2px, transparent 2px, transparent 6px);
+    border: 3px solid rgba(0,150,200,0.35); /* বাইরের বর্ডারের মত ইফেক্ট */
+    border-radius: 0.04in;
     z-index:1;
   }
+
   .photo img {
     width:100%; height:100%; object-fit:cover;
     position: relative;
