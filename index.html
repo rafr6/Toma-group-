@@ -46,9 +46,21 @@
     border-radius: 0.04in;
     overflow:hidden;
     margin-bottom: 0.04in;
+    position: relative;
+  }
+  /* Background pattern behind the photo */
+  .photo::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: url('design-pattern.png') center/cover no-repeat; /* এখানে তোমার ডিজাইন প্যাটার্ন ইমেজ বসাও */
+    opacity: 0.15; /* হালকা ডিজাইন */
+    z-index:1;
   }
   .photo img {
     width:100%; height:100%; object-fit:cover;
+    position: relative;
+    z-index:2;
   }
 
   .label { font-size: .08in; color:#555; }
