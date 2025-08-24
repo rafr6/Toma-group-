@@ -41,24 +41,31 @@
   .photo {
     width: 100%;
     aspect-ratio: 3/4;
-    border: 1px solid #ccc;
     background: #f8f8f8 center/cover no-repeat;
-    border-radius: 0.04in;
+    border-radius: 0.05in;
     overflow:hidden;
     margin-bottom: 0.04in;
     position: relative;
+    border: 3px solid transparent;
+    background-clip: padding-box;
   }
 
   /* 🔹 Screenshot-এর মতো চারপাশে ডিজাইন */
   .photo::before {
     content: '';
     position: absolute;
-    top:0; left:0; right:0; bottom:0;
+    inset: 0;
+    border-radius: 0.05in;
+    padding: 3px;
     background: 
-      repeating-linear-gradient(135deg, rgba(0,150,136,0.22) 0px, rgba(0,150,136,0.22) 2px, transparent 2px, transparent 6px),
-      repeating-linear-gradient(-135deg, rgba(0,200,255,0.18) 0px, rgba(0,200,255,0.18) 2px, transparent 2px, transparent 6px);
-    border: 3px solid rgba(0,150,200,0.35); /* বাইরের বর্ডারের মত ইফেক্ট */
-    border-radius: 0.04in;
+      repeating-linear-gradient(135deg, rgba(0,150,136,0.28) 0px, rgba(0,150,136,0.28) 2px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(-135deg, rgba(0,200,255,0.25) 0px, rgba(0,200,255,0.25) 2px, transparent 2px, transparent 6px),
+      linear-gradient(135deg, #009688, #00bcd4);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
     z-index:1;
   }
 
