@@ -37,16 +37,16 @@
     gap: 0.08in;
   }
 
-  /* Photo with solid background (no border) */
+  /* Photo */
   .photo {
     width: 100%;
     aspect-ratio: 3/4;
-    border: none;           /* চারপাশের বর্ডার সরানো হয়েছে */
-    border-radius: 0;       /* চারকোণা */
+    border: none;
+    border-radius: 0;
     overflow:hidden;
     margin-bottom: 0.04in;
-    background: #EAEAEA;    /* নতুন ব্যাকগ্রাউন্ড রঙ */
-    padding: 6px 3px;       /* উপর-নিচে কিছুটা বাড়ানো */
+    background: #EAEAEA;
+    padding: 6px 3px;
   }
   .photo img {
     width:100%; height:100%; object-fit:cover;
@@ -102,14 +102,12 @@
     color:#111;
   }
 
-  /* Download Button + Upload */
+  /* Download Button */
   .controls {
     margin-top: 10px;
-    display:flex;
-    gap:10px;
-    justify-content:center;
+    text-align:center;
   }
-  .download-btn, .upload-btn {
+  .download-btn {
     padding: 6px 14px;
     background: #4caf50;
     color: #fff;
@@ -118,7 +116,6 @@
     font-size: 13px;
     cursor: pointer;
   }
-  .upload-btn { background:#2196f3; }
 
   @page { size: 2.1in 3.37in; margin: 0; }
   @media print {
@@ -137,8 +134,8 @@
       <div class="grid">
         <!-- Photo + Barcode together -->
         <div>
-          <div class="photo" id="photoBox">
-            <img id="empPhoto" src="employee-photo.png" alt="Employee Photo">
+          <div class="photo">
+            <img src="photo.jpg" alt="Employee Photo">
           </div>
           <div class="barcode">
             <img src="barcode.png" alt="Barcode">
@@ -186,25 +183,10 @@
     <div class="footer">www.tomagroupbd.com</div>
   </div>
 
-  <!-- Buttons -->
+  <!-- Only Download Button -->
   <div class="controls">
-    <input type="file" id="uploadPhoto" accept="image/*" class="upload-btn">
     <button class="download-btn" onclick="window.print()">Download PDF</button>
   </div>
-
-<script>
-  // Photo upload preview
-  document.getElementById('uploadPhoto').addEventListener('change', function(e){
-    const file = e.target.files[0];
-    if(file){
-      const reader = new FileReader();
-      reader.onload = function(event){
-        document.getElementById('empPhoto').src = event.target.result;
-      }
-      reader.readAsDataURL(file);
-    }
-  });
-</script>
 
 </body>
 </html>
